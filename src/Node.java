@@ -9,7 +9,7 @@ public class Node implements Comparable<Node> {
 	LinkedHashMap<Node, Integer> weightedAdjacents = new LinkedHashMap<Node, Integer>();
 	String name = null;
 	boolean colored = false;
-	
+	String path = null;
 	int d = (int)Integer.MAX_VALUE;
 	Node prevNode = null;
 	
@@ -22,6 +22,10 @@ public class Node implements Comparable<Node> {
 		return name;
 	}
 	
+	public String getPath() {
+		return path;
+	}
+	
 	public int getD() {
 		return d;
 	}
@@ -31,8 +35,9 @@ public class Node implements Comparable<Node> {
 			d = newDee;
 	}
 	
-	public void setPrevNode(Node newNode) {
-		prevNode = newNode;
+	public void setPath(String prev) {
+		this.path = prev+"-"+this.name;
+		
 	}
 	public Node getPrevNode() {
 		return prevNode;

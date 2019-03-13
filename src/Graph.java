@@ -13,6 +13,7 @@ public class Graph
     static TreeSet<Node>settledSet = new TreeSet<Node>();
 	static LinkedHashMap<String, Node> verticesMap = new LinkedHashMap<String, Node>();
 	static PriorityQueue<Node> verticesQueue = new PriorityQueue<Node>();
+	
 	public static void main(String[]args) 
 	{
 		
@@ -64,7 +65,7 @@ public class Graph
 	    //perform di's alg on source
 		verticesQueue.remove(source);
 		source.changeD(0);
-	    source.setPrevNode(source);
+	    source.setPath("");
 		verticesQueue.add(source);
 		while(!verticesQueue.isEmpty())
 		{
@@ -80,7 +81,7 @@ public class Graph
 					{  
 						verticesQueue.remove(neighbor);
 						neighbor.changeD(neighborWeight + currNode.getD());
-						neighbor.setPrevNode(currNode);
+						neighbor.setPath(currNode.getPath());
 						verticesQueue.add(neighbor);
 					}	
 				}
@@ -92,7 +93,9 @@ public class Graph
 		while(!settledSet.isEmpty()) 
 		{
 			Node nodeN = settledSet.pollFirst();
-			System.out.println("Distance to "+nodeN.getName()+" from "+ source.getName()+" is "+nodeN.getD());
+			if (nodeN.equals(source))
+				continue;
+			System.out.println("Distance to "+nodeN.getName()+" from "+ source.getName()+" is "+nodeN.getD()+" and path is"+nodeN.getPath());
 		}
 	}
 
