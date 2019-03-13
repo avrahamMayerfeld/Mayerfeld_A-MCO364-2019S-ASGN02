@@ -11,7 +11,6 @@ public class Node implements Comparable<Node> {
 	boolean colored = false;
 	String path = null;
 	int d = (int)Integer.MAX_VALUE;
-	Node prevNode = null;
 	
 	
 	public Node(String name) {
@@ -38,9 +37,6 @@ public class Node implements Comparable<Node> {
 	public void setPath(String prev) {
 		this.path = prev+"-"+this.name;
 		
-	}
-	public Node getPrevNode() {
-		return prevNode;
 	}
 	
 	public void color() {
