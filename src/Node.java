@@ -54,7 +54,7 @@ public class Node implements Comparable<Node> {
 	public LinkedHashMap<Node, Integer> getWeightedAdjacents() {
 		return weightedAdjacents;
 	}
-	//no good, if all maxValue never comes off queue?
+	
 	@Override
 	public int compareTo(Node otherNode) {
 		return Integer.compare(this.d, otherNode.getD());
