@@ -12,7 +12,7 @@ public class WeightedGraph
 {
    
 	static LinkedList<Node> settledQueue = new LinkedList<Node>();
-    static LinkedHashMap<String, Node> verticesMap = new LinkedHashMap<String, Node>();
+    	static LinkedHashMap<String, Node> verticesMap = new LinkedHashMap<String, Node>();
 	
 	public static void main(String[]args) 
 	{
@@ -63,10 +63,10 @@ public class WeightedGraph
 		Node currNode = null;
 		Node neighbor = null;
 		int neighborWeight = 0;
-	    //perform di's alg on source
+	    	//perform di's alg on source
 		//bgverticesQueue.remove(source);
 		source.changeD(0);
-	    source.setPath("");
+	    	source.setPath("");
 		verticesQueue.add(source);
 		
 		while(!verticesQueue.isEmpty())
